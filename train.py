@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 # Char-RNN 예제
+# Author : solaris33
+# Project URL : http://solarisailab.com/archives/2487
+# GitHub Repository : https://github.com/solaris33/char-rnn-tensorflow/
 # Reference : https://github.com/sherjilozair/char-rnn-tensorflow
 
 import tensorflow as tf
