@@ -11,8 +11,8 @@ import numpy as np
 from utils import TextLoader
 
 # 학습에 필요한 설정값들을 지정합니다.
-#data_dir = 'data/tinyshakespeare'
-data_dir = 'data/linux'
+data_dir = 'data/tinyshakespeare' # 셰익스피어 희곡 <리처드 3세> 데이터로 학습
+#data_dir = 'data/linux' # <Linux 소스코드> 데이터로 학습
 batch_size = 50 # Training : 50, Sampling : 1
 seq_length = 50 # Training : 50, Sampling : 1
 hidden_size = 128   # 히든 레이어의 노드 개수
