@@ -11,8 +11,8 @@ import numpy as np
 from utils import TextLoader
 
 # 학습에 필요한 설정값들을 지정합니다.
-data_dir = 'data/tinyshakespeare'
-#data_dir = 'data/linux'
+#data_dir = 'data/tinyshakespeare'
+data_dir = 'data/linux'
 batch_size = 50 # Training : 50, Sampling : 1
 seq_length = 50 # Training : 50, Sampling : 1
 hidden_size = 128   # 히든 레이어의 노드 개수
@@ -48,7 +48,7 @@ for _ in range(0, num_hidden_layers):
 cell = tf.contrib.rnn.MultiRNNCell(cells, state_is_tuple=True)
 
 # 인풋데이터를 변환하기 위한 Embedding Matrix를 선언합니다.
-# hidden_size -> vocab_size
+# vocab_size -> hidden_size
 embedding = tf.Variable(tf.random_normal(shape=[vocab_size, hidden_size]), dtype=tf.float32)
 inputs = tf.nn.embedding_lookup(embedding, input_data)
 
@@ -126,7 +126,7 @@ with tf.Session() as sess:
         return(int(np.searchsorted(t, np.random.rand(1)*s)))
 
     ret = prime       # 샘플링 결과를 리턴받을 ret 변수에 첫번째 글자를 할당합니다.
-    char = prime      # Char-RNN의 첫번쨰 인풋을 지정합니다.  
+    char = prime[-1]   # Char-RNN의 첫번쨰 인풋을 지정합니다.  
     for n in range(num_sampling):
         x = np.zeros((1, 1))
         x[0, 0] = vocab[char]
